@@ -9,7 +9,8 @@
       <div class="d-flex justify-content-between align-items-center">
         <h2>Portfolio Details</h2>
         <ol>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
           <li>Portfolio Details</li>
         </ol>
       </div>
@@ -28,30 +29,30 @@
             <div class="swiper-wrapper align-items-center">
 
               <div class="swiper-slide">
-                <img src="{{asset('storage/'. $portfolio->image1)}}" class="d-block w-100" alt="First slide">
+                <img src="{{asset('storage/'. $portfolio->image1)}}" class="d-block w-100" alt="First slide" width="700px" height="400px">
               </div>
 
               <div class="swiper-slide">
                 @if ($portfolio->image2)
-                <img src="{{asset('storage/'. $portfolio->image2)}}" class="d-block w-100" alt="Second slide">
+                <img src="{{asset('storage/'. $portfolio->image2)}}" class="d-block w-100" alt="Second slide" width="700px" height="400px">
                 @else
-                <img src="{{asset('storage/'. $portfolio->image1)}}" class="d-block w-100" alt="First slide">
+                <img src="{{asset('storage/'. $portfolio->image1)}}" class="d-block w-100" alt="First slide" width="700px" height="400px">
                 @endif 
               </div>
 
               <div class="swiper-slide">
                 @if ($portfolio->image3)
-                <img src="{{asset('storage/'. $portfolio->image3)}}" class="d-block w-100" alt="Third slide">
+                <img src="{{asset('storage/'. $portfolio->image3)}}" class="d-block w-100" alt="Third slide" width="700px" height="400px">
                 @else
-                <img src="{{asset('storage/'. $portfolio->image1)}}" class="d-block w-100" alt="First slide">
+                <img src="{{asset('storage/'. $portfolio->image1)}}" class="d-block w-100" alt="First slide" width="700px" height="400px">
                 @endif  
               </div>
 
               <div class="swiper-slide">
                 @if ($portfolio->image4)
-                <img src="{{asset('storage/'. $portfolio->image4)}}" class="d-block w-100" alt="Fourth slide">
+                <img src="{{asset('storage/'. $portfolio->image4)}}" class="d-block w-100" alt="Fourth slide" width="700px" height="400px">
                 @else
-                <img src="{{asset('storage/'. $portfolio->image1)}}" class="d-block w-100" alt="First slide">
+                <img src="{{asset('storage/'. $portfolio->image1)}}" class="d-block w-100" alt="First slide" width="700px" height="400px">
                 @endif 
               </div>
 

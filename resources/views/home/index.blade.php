@@ -2,7 +2,7 @@
 
 @section('container')
 
-<section id="hero-fullscreen" class="hero-fullscreen d-flex align-items-center">
+<section id="home" class="hero-fullscreen d-flex align-items-center">
   <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
     <h2>Welcome to <span>Samalogi</span></h2>
     <p>Create Your Laboratory and Simulator Equipment with The Latest Technology Innovative</p>
@@ -21,8 +21,8 @@
   @foreach ($budaya as $kerja)
   <div class="col-md-2" data-aos="zoom-out">
     <div class="service-item">
-      <div class="icon"><img src="{{asset('storage/'. $kerja->icon)}}" alt="icon" height="60px"></div>
-      <h4><a href="" class="stretched-link">{{ $kerja->judul_budaya }}</a></h4>
+      <div class="icon"><img src="{{asset('uploads/'. $kerja->icon)}}" alt="icon" height="60px"></div>
+      <h4><a class="stretched-link">{{ $kerja->judul_budaya }}</a></h4>
       <p>{{ $kerja->penjelasan }}</p>
     </div>
   </div><!-- End Service Item -->
@@ -66,7 +66,7 @@
       <div class="clients-slider swiper">
         <div class="swiper-wrapper align-items-center">
           @foreach ($clients as $client)    
-          <div class="swiper-slide"><img src="{{asset('storage/'. $client->logo)}}" class="img-fluid" alt=""></div>
+          <div class="swiper-slide"><img src="{{asset('uploads/'. $client->logo)}}" class="img-fluid" alt="" ></div>
           @endforeach
         </div>
       </div>
@@ -90,6 +90,7 @@
 
       <div class="section-header">
         <h2>Portfolio</h2>
+        <p>Recent Post from Our Portfolio</p>
       </div>
     
     </div>
@@ -98,14 +99,14 @@
     
       <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
     
-        <div class="row g-0 portfolio-container">
+        <div class="row gy-4">
           @foreach ($portfolios as $portfolio)
               
-          <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-            <img src="{{asset('storage/'. $portfolio->image1)}}" class="img-fluid" alt="">
+          <div class="col-lg-4 portfolio-item">
+            <img src="{{asset('uploads/'. $portfolio->image1)}}" class="d-block w-100" alt="" width="300px" height="300px">
             <div class="portfolio-info">
               <h4>{{ $portfolio->nama_portfolio }}</h4>
-              <a href="{{asset('storage/'. $portfolio->image1)}}" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              <a href="{{asset('uploads/'. $portfolio->image1)}}" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
               <a href="/portfolio-detail/{{ $portfolio->id }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
             </div>
           </div><!-- End Portfolio Item -->
@@ -123,45 +124,48 @@
   
 
   <!-- ======= Recent Blog Posts Section ======= -->
-  <section id="recent-blog-posts" class="recent-blog-posts">
+  @if (!$blogs->isEmpty())
+    <section id="recent-blog-posts" class="recent-blog-posts">
 
-    <div class="container" data-aos="fade-up">
+      <div class="container" data-aos="fade-up">
 
-      <div class="section-header">
-        <h2>Blog</h2>
-        <p>Recent posts form our Blog</p>
+        <div class="section-header">
+          <h2>Blog</h2>
+          <p>Recent posts form our Blog</p>
+        </div>
+        <div class="row gy-4 posts-list">
+          @foreach ($blogs as $blog)  
+          <div class="col-lg-4">
+            <article class="post-box">
+
+              <div class="post-img">
+                <img src="{{asset('uploads/'. $blog->gambar)}}" alt="" class="img-fluid">
+              </div>
+
+              <h3 class="post-title">{{ $blog->judul_blog }}</h3>
+
+              <div class="meta">
+                <span class="post-date"><time datetime="2022-01-01">{{ $blog->created_at }}</time></a></span>
+                <span class="post-author"> / {{$user->nama}}</a></span>
+              </div>
+
+              <div class="content">
+                <p>
+                  {!! Str::limit($blog->isi_blog, 200, '...') !!}
+                </p>
+              </div>
+
+                <a href="/blog-detail/{{ $blog->id }}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            </article>
+          </div><!-- End post list item -->
+          @endforeach
+        </div><!-- End blog posts list -->
+
       </div>
-      <div class="row gy-4 posts-list">
-        @foreach ($blogs as $blog)  
-        <div class="col-lg-4">
-          <article class="post-box">
 
-            <div class="post-img">
-              <img src="{{asset('storage/'. $blog->gambar)}}" alt="" class="img-fluid">
-            </div>
-
-            <h3 class="post-title">{{ $blog->judul_blog }}</h3>
-
-            <div class="meta">
-              <span class="post-date"><time datetime="2022-01-01">{{ $blog->created_at }}</time></a></span>
-              <span class="post-author"> / {{$user->nama}}</a></span>
-            </div>
-
-            <div class="content">
-              <p>
-                {!! Str::limit($blog->isi_blog, 200, '...') !!}
-              </p>
-            </div>
-
-              <a href="/blog-detail/{{ $blog->id }}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-          </article>
-        </div><!-- End post list item -->
-        @endforeach
-      </div><!-- End blog posts list -->
-
-    </div>
-
-  </section><!-- End Recent Blog Posts Section -->
+    </section>
+  @endif
+  <!-- End Recent Blog Posts Section -->
 
   <!-- ======= Contact Section ======= -->
   

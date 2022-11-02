@@ -25,10 +25,10 @@
         <!-- Basic Inputs start -->
 
   <div class="row match-height">
-    <div class="col-lg-4 col-md-6">
+    <div class="col-lg-6 col-md-6">
         <div class="card">
             @if ($blog->gambar)
-            <img src="{{asset('storage/'. $blog->gambar)}}" alt="gambar blog" class="img-fluid" width="80%">
+            <img src="{{asset('storage/'. $blog->gambar)}}" alt="gambar blog" class="img-fluid">
             @else
             <p class="fs-4">Gambar Not Found!</p>
             @endif  

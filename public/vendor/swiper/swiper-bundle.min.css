@@ -47,7 +47,7 @@
 
 .swiper-android .swiper-slide,
 .swiper-wrapper {
-    transform: translate3d(0px, 0, 0)
+    transform: translate3d(0px, 0, 0);
 }
 
 .swiper-pointer-events {
@@ -63,7 +63,7 @@
     width: 100%;
     height: 100%;
     position: relative;
-    transition-property: transform
+    transition-property: transform;
 }
 
 .swiper-slide-invisible-blank {
