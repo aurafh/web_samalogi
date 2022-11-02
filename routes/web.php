@@ -28,9 +28,10 @@ use App\Models\Contact;
 */
 
 Route::get('/', [HomePageController::class, 'index']);
-Route::get('/portfolio-detail/{id}', [HomePageController::class, 'portfolios']);
+Route::get('/portfolio-detail/{id}', [HomePageController::class, 'portfolio']);
 Route::get('/blog-detail/{id}', [HomePageController::class, 'blog']);
 Route::get('/blogs', [HomePageController::class, 'blogs']);
+Route::get('/portfolio', [HomePageController::class, 'portfolios']);
 Route::post('/send', [ContactController::class, 'send'])->name('send.email');
 
 

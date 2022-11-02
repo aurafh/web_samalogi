@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $menu=MenuItem::all();
+        $menu=MenuItem::where('is_active', 1)->get();
         view()->share('menu', $menu);
 
         Paginator::useBootstrap();

@@ -6,7 +6,7 @@
     <div class="content-wrapper-before"></div>
     <div class="content-header row">
       <div class="content-header-left col-md-6 col-12 mb-2">
-        <h3 class="content-header-title">Create New Content About Us</h3>
+        <h3 class="content-header-title">Edit Content About Us</h3>
       </div>
       <div class="content-header-right col-md-6 col-12">
         <div class="breadcrumbs-top float-md-right">
@@ -14,7 +14,7 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="/dashboard/about-us">About Us</a>
               </li>
-              <li class="breadcrumb-item active">Create
+              <li class="breadcrumb-item active">Edit
               </li>
             </ol>
           </div>

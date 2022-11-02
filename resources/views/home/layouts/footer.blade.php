@@ -7,9 +7,6 @@
             <div class="copyright">
               Copyright &copy; 2022<strong><span> PT. Savana Madani Teknologi</span></strong>
             </div>
-            <div class="credits">
-              Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
           </div>
           <div class="col-md-6">
             <div class="d-flex justify-content-end">
@@ -18,8 +15,8 @@
               <a class="scrollto mx-4" style="color: white" href="#clients">Our Client</a>
               |
               <a class="scrollto mx-4" style="color: white" href="#portfolio">Portfolio</a>
-              |
-              <a class="scrollto mx-4" style="color: white" href="#blog">Blog</a>
+              {{-- |
+              <a class="scrollto mx-4" style="color: white" href="#blog">Blog</a> --}}
               |
               <a class="scrollto mx-4" style="color: white" href="#contact">Contact</a> 
             </div>
