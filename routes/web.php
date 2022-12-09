@@ -49,8 +49,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/dashboard/about-us/{id}/destroy', [AboutUsController::class, 'destroy']);
 
     Route::resource('/dashboard/our-client', ClientController::class);
-    Route::get('/dashboard/our-client{id}/confirm', [ClientController::class, 'confirm']);
-    Route::get('/dashboard/our-client{id}/destroy', [ClientController::class, 'destroy']);
+    Route::get('/dashboard/our-client/{id}/confirm', [ClientController::class, 'confirm']);
+    Route::get('/dashboard/our-client/{id}/destroy', [ClientController::class, 'destroy']);
 
     Route::resource('/dashboard/portfolio', PortfolioController::class);
     Route::get('/dashboard/portfolio/{id}/confirm', [PortfolioController::class, 'confirm']);

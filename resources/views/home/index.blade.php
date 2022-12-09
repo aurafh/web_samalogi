@@ -21,7 +21,7 @@
   @foreach ($budaya as $kerja)
   <div class="col-md-2" data-aos="zoom-out">
     <div class="service-item">
-      <div class="icon"><img src="{{asset('uploads/'. $kerja->icon)}}" alt="icon" height="60px"></div>
+      <div class="icon"><img src="{{asset('storage/'. $kerja->icon)}}" alt="icon" height="60px"></div>
       <h4><a class="stretched-link">{{ $kerja->judul_budaya }}</a></h4>
       <p>{{ $kerja->penjelasan }}</p>
     </div>
@@ -63,17 +63,21 @@
   <section id="clients" class="clients">
     <div class="container" data-aos="zoom-out">
 
+      <div class="section-header">
+        <h2>Our Client</h2></div> 
       <div class="clients-slider swiper">
         <div class="swiper-wrapper align-items-center">
           @foreach ($clients as $client)    
-          <div class="swiper-slide"><img src="{{asset('uploads/'. $client->logo)}}" class="img-fluid" alt="" ></div>
+          <div class="swiper-slide">
+            <img src="{{asset('storage/'. $client->logo)}}" alt="" width="110px">
+          </div>
           @endforeach
         </div>
       </div>
   
     </div>
   
-  </section><!-- End Clients Section -->
+  </section><!-- End Clients Sec-->
 
   <section id="cta" class="cta">
     <div class="d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
@@ -103,10 +107,10 @@
           @foreach ($portfolios as $portfolio)
               
           <div class="col-lg-4 portfolio-item">
-            <img src="{{asset('uploads/'. $portfolio->image1)}}" class="d-block w-100" alt="" width="300px" height="300px">
+            <img src="{{asset('storage/'. $portfolio->image1)}}" class="d-block w-100" alt="" width="300px" height="300px">
             <div class="portfolio-info">
               <h4>{{ $portfolio->nama_portfolio }}</h4>
-              <a href="{{asset('uploads/'. $portfolio->image1)}}" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              <a href="{{asset('storage/'. $portfolio->image1)}}" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
               <a href="/portfolio-detail/{{ $portfolio->id }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
             </div>
           </div><!-- End Portfolio Item -->
@@ -139,7 +143,7 @@
             <article class="post-box">
 
               <div class="post-img">
-                <img src="{{asset('uploads/'. $blog->gambar)}}" alt="" class="img-fluid">
+                <img src="{{asset('storage/'. $blog->gambar)}}" alt="" class="img-fluid">
               </div>
 
               <h3 class="post-title">{{ $blog->judul_blog }}</h3>
