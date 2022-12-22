@@ -50,7 +50,7 @@ class BlogController extends Controller
         ]);
 
         if($request->file('gambar')){
-            $validateData['gambar']=$request->file('gambar')->store('blog-images');
+            $validateData['gambar']=$request->file('gambar')->store('blog-images', 'public');
         }
         
 
@@ -105,7 +105,7 @@ class BlogController extends Controller
             Storage::delete($request->oldImage);
             }
         
-            $file = $request->file('gambar')->store('blog-images');
+            $file = $request->file('gambar')->store('blog-images', 'public');
             $blog->gambar = $file;
             }
             $blog->save();

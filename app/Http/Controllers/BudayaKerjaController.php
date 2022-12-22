@@ -48,7 +48,7 @@ class BudayaKerjaController extends Controller
         ]);
 
         if($request->file('icon')){
-            $validateData['icon']=$request->file('icon')->store('budaya-images');
+            $validateData['icon']=$request->file('icon')->store('budaya-images', 'public');
         }
 
         BudayaKerja::create($validateData);
@@ -101,7 +101,7 @@ class BudayaKerjaController extends Controller
             Storage::delete($request->oldImage);
             }
         
-            $file = $request->file('icon')->store('budaya-images');
+            $file = $request->file('icon')->store('budaya-images', 'public');
             $budayakerja->icon = $file;
             }
             $budayakerja->save();

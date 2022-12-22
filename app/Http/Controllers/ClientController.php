@@ -47,7 +47,7 @@ class ClientController extends Controller
         ]);
 
         if($request->file('logo')){
-            $validateData['logo']=$request->file('logo')->store('client-images');
+            $validateData['logo']=$request->file('logo')->store('client-images', 'public');
         }
 
         Client::create($validateData);
@@ -98,7 +98,7 @@ class ClientController extends Controller
             Storage::delete($request->oldImage);
             }
         
-            $file = $request->file('logo')->store('client-images');
+            $file = $request->file('logo')->store('client-images', 'public');
             $client->logo = $file;
             }
             $client->save();

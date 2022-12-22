@@ -5,7 +5,7 @@
 <section id="home" class="hero-fullscreen d-flex align-items-center">
   <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
     <h2>Welcome to <span>Samalogi</span></h2>
-    <p>Create Your Laboratory and Simulator Equipment with The Latest Technology Innovative</p>
+    <p>Create Your Laboratory and Simulator Equipment with The Latest Technology Innovation</p>
     <div class="d-flex">
       <a href="#budaya-kerja" class="btn-get-started scrollto">Get Started</a>
     </div>
@@ -67,8 +67,8 @@
         <h2>Our Client</h2></div> 
       <div class="clients-slider swiper">
         <div class="swiper-wrapper align-items-center">
-          @foreach ($clients as $client)    
-          <div class="swiper-slide">
+          @foreach ($clients as $client)
+          <div class="swiper-slide" style="text-align: center;">
             <img src="{{asset('storage/'. $client->logo)}}" alt="" width="110px">
           </div>
           @endforeach
@@ -79,16 +79,14 @@
   
   </section><!-- End Clients Sec-->
 
+  @if (!$portfolios->isEmpty())
   <section id="cta" class="cta">
     <div class="d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
       <img src="{{ asset('img/hero-carousel/girl-doing-yoga-light.png') }}" alt="" class="img-fluid" width="450px">
     </div>
   </section><!-- End Call To Action Section -->
 
-
-
   <!-- ======= Portfolio Section ======= -->
-  
   <section id="portfolio" class="portfolio" data-aos="fade-up">
     <div class="container">
 
@@ -122,8 +120,8 @@
       </div>
     
     </div>
-    </section>
-  
+  </section>
+  @endif
   <!-- End Portfolio Section -->
   
 
@@ -271,3 +269,41 @@
 <!-- End #main -->
 
 @endsection
+
+@push('append-script')
+  @php
+    $showClient = 6;
+    if ($clients->count() < 6) {
+      $showClient = $clients->count();
+    }
+  @endphp
+  <script>
+    new Swiper('.clients-slider', {
+    speed: 400,
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    breakpoints: {
+      320: {
+        slidesPerView: {{$showClient}},
+        spaceBetween: 40
+      },
+      480: {
+        slidesPerView: {{$showClient}},
+        spaceBetween: 60
+      },
+      640: {
+        slidesPerView: {{$showClient}},
+        spaceBetween: 80
+      },
+      992: {
+        slidesPerView: {{$showClient}},
+        spaceBetween: 120
+      }
+    }
+  });
+  </script>
+@endpush

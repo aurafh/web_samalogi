@@ -124,6 +124,7 @@ class ContactController extends Controller
     }
 
     public function send(Request $request){
+        return redirect('/')->with('error', 'Pesan tidak terkirim!');
         $request->validate([
             'name'=>'required',
             'email'=>'required|email',
@@ -141,24 +142,19 @@ class ContactController extends Controller
                     'body'=>$request->message
                 ];
     
-            \Mail::send('email-template',$mail_data, function($message) use ($mail_data){
-                $message->to(env('MAIL_USERNAME'))
-                        ->from(env('MAIL_USERNAME'), $mail_data['fromName'])
-                        ->subject($mail_data['subject']);
-            });
-        }
-        return redirect()->back()->with('success', 'Pesan berhasil terkirim!');
-
+                // \Mail::send('email-template',$mail_data, function($message) use ($mail_data){
+                //     $message->to(env('MAIL_USERNAME'))
+                //             ->from(env('MAIL_USERNAME'), $mail_data['fromName'])
+                //             ->subject($mail_data['subject']);
+                // });
+                // dd('yots');
+            }
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'Pesan tidak terkirim!');
         }
         
+        return redirect()->back()->with('success', 'Pesan berhasil terkirim!');
 
-        // return redirect()->back();
-
-        // } else{
-        //     return redirect('/');
-        // }
     }
 
     public function isOnline($site="https://google.com/"){

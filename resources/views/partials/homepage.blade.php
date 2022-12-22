@@ -58,7 +58,7 @@
   <script src="{{ asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
   <script src="{{ asset('vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}"></script>
-  <script>
+  {{-- <script>
     
     const swiper = new Swiper('.swiper', {
       slidesPerView: 5,
@@ -70,12 +70,12 @@
       }
     },);
 
-  </script>
+  </script> --}}
   <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
   
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
-
+  @stack("append-script")
 </body>
 
 </html>

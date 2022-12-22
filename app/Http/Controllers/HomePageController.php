@@ -18,7 +18,7 @@ class HomePageController extends Controller
         $user = User::first();
         $abouts = AboutUs::orderBy('created_at', 'desc')->limit(1)->first();
         $clients = Client::orderBy('created_at', 'desc')-> get();
-        $portfolios = Portfolio::orderBy('created_at', 'desc')->limit(3)->get();
+        $portfolios = Portfolio::where('is_active', 1)->orderBy('created_at', 'desc')->limit(3)->get();
         $contacts = Contact::orderBy('created_at', 'desc')->get();
         $blogs = Blog::where('is_active', 1)->orderBy('created_at', 'desc')->limit(3)->get();
         $budaya = BudayaKerja::orderBy('created_at', 'desc')->get();

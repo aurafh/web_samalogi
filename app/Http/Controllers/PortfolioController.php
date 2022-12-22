@@ -55,16 +55,16 @@ class PortfolioController extends Controller
         ]);
         
         if($request->file('image1')){
-            $validateData['image1']=$request->file('image1')->store('portfolio-images');
+            $validateData['image1']=$request->file('image1')->store('portfolio-images', 'public');
         }
         if($request->file('image2')){
-            $validateData['image2']=$request->file('image2')->store('portfolio-images');
+            $validateData['image2']=$request->file('image2')->store('portfolio-images', 'public');
         }
         if($request->file('image3')){
-            $validateData['image3']=$request->file('image3')->store('portfolio-images');
+            $validateData['image3']=$request->file('image3')->store('portfolio-images', 'public');
         }
         if($request->file('image4')){
-            $validateData['image4']=$request->file('image4')->store('portfolio-images');
+            $validateData['image4']=$request->file('image4')->store('portfolio-images', 'public');
         }
         Portfolio::create($validateData);
         return redirect('/dashboard/portfolio')->with('success', 'Data Portfolio Berhasil Ditambahkan!');
@@ -120,7 +120,7 @@ class PortfolioController extends Controller
             Storage::delete($request->oldImage);
             }
         
-            $file = $request->file('image1')->store('portfolio-images');
+            $file = $request->file('image1')->store('portfolio-images', 'public');
             $portfolio->image1 = $file;
             }
 
@@ -129,7 +129,7 @@ class PortfolioController extends Controller
             Storage::delete($request->oldImage);
             }
                 
-            $file = $request->file('image2')->store('portfolio-images');
+            $file = $request->file('image2')->store('portfolio-images', 'public');
             $portfolio->image2 = $file;
             }
         
@@ -138,7 +138,7 @@ class PortfolioController extends Controller
             Storage::delete($request->oldImage);
             }
                         
-            $file = $request->file('image3')->store('portfolio-images');
+            $file = $request->file('image3')->store('portfolio-images', 'public');
             $portfolio->image3 = $file;
             }
                             
@@ -147,7 +147,7 @@ class PortfolioController extends Controller
             Storage::delete($request->oldImage);
             }
                                 
-            $file = $request->file('image4')->store('portfolio-images');
+            $file = $request->file('image4')->store('portfolio-images', 'public');
             $portfolio->image4 = $file;
             }
             $portfolio->save();

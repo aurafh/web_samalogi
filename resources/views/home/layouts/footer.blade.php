@@ -13,8 +13,10 @@
               <a class="scrollto mx-4" style="color: white" href="#about">About Us</a>
               |
               <a class="scrollto mx-4" style="color: white" href="#clients">Our Client</a>
+              @if (!$portfolios->isEmpty())
               |
               <a class="scrollto mx-4" style="color: white" href="#portfolio">Portfolio</a>
+              @endif
               {{-- |
               <a class="scrollto mx-4" style="color: white" href="#blog">Blog</a> --}}
               |

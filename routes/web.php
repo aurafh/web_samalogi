@@ -27,7 +27,7 @@ use App\Models\Contact;
 |
 */
 
-Route::get('/', [HomePageController::class, 'index']);
+Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 Route::get('/portfolio-detail/{id}', [HomePageController::class, 'portfolio']);
 Route::get('/blog-detail/{id}', [HomePageController::class, 'blog']);
 Route::get('/blogs', [HomePageController::class, 'blogs']);
